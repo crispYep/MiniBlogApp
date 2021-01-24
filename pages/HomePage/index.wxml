@@ -1,0 +1,12 @@
+<view>
+    <!-- 轮播图 -->
+    <view class="slideShow">
+
+    </view>
+
+    <!-- 用户发表的博文列表 -->
+    <view class="userBlogList">
+        
+    </view>
+</view>
+  
