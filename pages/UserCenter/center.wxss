@@ -1,0 +1,25 @@
+/* center.wxss */
+.margin-10 {
+    margin: 10rpx 0;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.flex-align-cneter {
+    align-items: center;
+    text-align: center;
+    align-self: center;
+}
+.margin-bottom-10 {
+    margin-bottom: 10rpx;
+}
+.margin-right-10 {
+    margin-right: 10px;
+}

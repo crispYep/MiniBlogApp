@@ -1,0 +1,35 @@
+<view class="">
+    <form>
+        <view class="cu-form-group margin-top" bindtap="chooseAvatar">
+            <view class="title">头像<p class="margin-left-30">点击上传</p></view>
+            <view class="cu-avatar round bg-gray" style="background-image: url({{showAvatarUrl}});"></view>
+        </view>
+        <view class="cu-form-group margin-top">
+            <view class="title">账户名</view>
+            <input placeholder="不可更改" name="input" disabled="{{true}}" value="{{userAccount}}"></input>
+        </view>
+        <view class="cu-form-group margin-top">
+            <view class="title">昵称</view>
+            <input placeholder="请输入0-20个字符" name="input" bindinput="nicknameInput" value="{{userNickName}}"></input>
+        </view>
+    </form>
+
+    <view class="cu-bar btn-group" style="margin-top: 50rpx;">
+        <button class="cu-btn text-red line-red shadow" bindtap="showModal">退出登录</button>
+        <button class="cu-btn bg-green shadow-blur" bindtap="modifyUserInfo">保存修改</button>
+    </view>
+    
+
+    <!-- 是否确认退出登录 -->
+    <view class="cu-modal bottom-modal {{isLogout ?'show':''}}">
+        <view class="cu-dialog">
+            <view class="cu-bar bg-white">
+                <view class="action text-green" bindtap="logout">确定</view>
+                <view class="action text-blue" bindtap="hideModal">取消</view>
+            </view>
+            <view class="padding-xl">
+                是否确认退出登录?
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,38 @@
+<view class="">
+    <!-- 用户信息 点击进入用户主页 -->
+    <view class="cu-list menu-avatar margin-10">
+        <view class="cu-item">
+            <view class="cu-avatar round lg" style="background-image:url({{ userAvatarUrl }});"></view>
+            <view class="content">
+                <view class="text-black">{{ userNickName }}</view>
+                <view class="text-gray text-sm flex">
+                    <text class="text-cut">
+                        <text class="text-gray margin-right-xs">账户: {{ userAccount }}</text>
+                    </text>
+                </view>
+            </view>
+            <view class="action">
+                <view class="lg text-gray cuIcon-right"></view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 用户关注数、粉丝数、文章数 -->
+    <view class="bg-white padding flex-row margin-bottom-10">
+        <view class="" wx:for="{{ numberList }}" wx:key="key">
+            <view class="flex-column">
+                <view class="text-black flex-align-cneter margin-bottom-10">{{ item.num }}</view>
+                <view class="text-gray flex-align-cneter">{{ item.title }}</view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 用户点赞、收藏、评论、收到的点赞、通知 -->
+    <view class="cu-list grid col-3 no-border bg-white">
+        <view class="cu-item" wx:for="{{ likeList }}" wx:key="key" bindtap="clickCenterEvent" data-gridkey="{{item.key}}">
+            <view class="{{item.icon}} text-theme"></view>
+            <text>{{item.title}}</text>
+        </view>
+    </view>
+
+</view>

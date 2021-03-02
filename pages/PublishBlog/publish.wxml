@@ -1,0 +1,26 @@
+<view class="editor_toolbox">
+    <i class="iconfont icon-undo" data-method="undo" bindtap="edit" />
+    <i class="iconfont icon-redo" data-method="redo" bindtap="edit" />
+    <i class="iconfont icon-img" data-method="insertImg" bindtap="edit" />
+    <i class="iconfont icon-video" data-method="insertVideo" bindtap="edit" />
+    <i class="iconfont icon-link" data-method="insertLink" bindtap="edit" />
+    <i class="iconfont icon-text" data-method="insertText" bindtap="edit" />
+    <i class="iconfont icon-clear" bindtap="clear" />
+    <i class="iconfont icon-save" bindtap="save" />
+</view>
+<view style="padding-bottom: 50px;">
+    <mp-html id="article" content="{{content}}" domain="https://6874-html-foe72-1259071903.tcb.qcloud.la/demo"
+        editable="{{editable}}"></mp-html>
+</view>
+<block wx:if="{{modal}}">
+    <view class="mask" />
+    <view class="modal">
+        <view class="modal_title">{{modal.title}}</view>
+        <input class="modal_input" value="{{modal.value}}" maxlength="-1" auto-focus bindinput="modalInput" />
+        <view class="modal_foot">
+            <view class="modal_button" bindtap="modalCancel">取消</view>
+            <view class="modal_button" style="color:#576b95;border-left:1px solid rgba(0,0,0,.1)"
+                bindtap="modalConfirm">确定</view>
+        </view>
+    </view>
+</block>

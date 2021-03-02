@@ -1,9 +1,13 @@
 {
     "pages": [
+        "pages/Login/login",
+        "pages/UserSetting/setting",
+        "pages/PublishBlog/publish",
+        "pages/UserCenter/center",
         "pages/index/index",
         "pages/logs/logs",
-        "pages/HomePage/index",
-        "pages/PublishBlog/index"
+        "pages/HomePage/index"
+        
     ],
     "tabBar": {
         "color": "#000",
@@ -17,14 +21,14 @@
                 "selectedIconPath": "images/homePageIconActive.png"
             },
             {
-                "pagePath": "pages/PublishBlog/index",
+                "pagePath": "pages/PublishBlog/publish",
                 "text": "发布",
                 "iconPath": "images/plusIcon.png",
                 "selectedIconPath": "images/plusIconActive.png"
             },
             {
-                "pagePath": "pages/HomePage/index",
-                "text": "我的",
+                "pagePath": "pages/UserCenter/center",
+                "text": "个人中心",
                 "iconPath": "images/userIcon.png",
                 "selectedIconPath": "images/userIconActive.png"
             }   
@@ -33,7 +37,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "Weixin",
+        "navigationBarTitleText": "洋芋博客",
         "navigationBarTextStyle": "black"
     },
     "style": "v2",

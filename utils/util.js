@@ -1,19 +1,28 @@
-const formatTime = date => {
-    const year = date.getFullYear()
-    const month = date.getMonth() + 1
-    const day = date.getDate()
-    const hour = date.getHours()
-    const minute = date.getMinutes()
-    const second = date.getSeconds()
-
-    return `${[year, month, day].map(formatNumber).join('/')} ${[hour, minute, second].map(formatNumber).join(':')}`
+// 构建url
+const buildURL = (url, query = {}, isSequence = true) => {
+    if (!query) return url
+    const joiner = url.match(/\?/) ? '&' : '?'
+    const queryStr = Object.keys(query)
+        .map(key => `${key}=${encodeURIComponent(isSequence ? JSON.stringify(query[key]) : query[key])}`)
+        .join('&')
+    return url + joiner + queryStr
 }
 
-const formatNumber = n => {
-    n = n.toString()
-    return n[1] ? n : `0${n}`
+// 解析query对象
+const decodeQuery = (originQuery = {}, isSequence = true) => {
+    const result = {}
+    if (!originQuery) return {}
+    return Object.keys(originQuery).reduce((prev, curr) => {
+        result[curr] = decodeURIComponent(originQuery[curr])
+        if (isSequence) {
+            result[curr] = JSON.parse(result[curr])
+        }
+        return result
+    }, result)
 }
+
 
 module.exports = {
-    formatTime
+    buildURL,
+    decodeQuery
 }

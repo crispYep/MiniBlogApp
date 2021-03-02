@@ -4,10 +4,41 @@ const app = getApp()
 
 Page({
     data: {
-        motto: 'Hello World',
-        userInfo: {},
-        hasUserInfo: false,
-        canIUse: wx.canIUse('button.open-type.getUserInfo')
+        tabCur: 'home-follow', // 当前 tab 值
+        tabList: [{
+                key: 'home-follow',
+                title: '关注'
+            },
+            {
+                key: 'home-myBlog',
+                title: '我发表的'
+            },
+            {
+                key: 'home-browsing',
+                title: '随便逛逛'
+            },
+        ], // tab 列表
+        blogList: [
+            {
+                userId: '123', // 用户 id
+                nickName: '昵称', // 用户昵称
+                avatar: 'https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png', // 头像地址
+                title: '标题', // 文章标题
+                coverImage: 'https://jpg.macz.com/pic/202008/24113132_90d785d35b.jpeg', // 封面图地址
+                date: '日期', // 发表日期
+                isLike: false, // 是否点赞
+                likeCount: 0, // 点赞数量
+                commentCount: 0, // 评论数量
+                isCollect: false, // 是否收藏
+            }
+        ],
+    },
+    // tab 选项卡事件
+    tabSelect(e) {
+        console.log(e.currentTarget)
+        this.setData({
+            tabCur: e.currentTarget.dataset.id
+        })
     },
     // 事件处理函数
     bindViewTap() {
